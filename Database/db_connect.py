@@ -1,11 +1,12 @@
 import os
 import cloudinary
+import certifi
 from pymongo import MongoClient
 from dotenv import load_dotenv
 
 load_dotenv()
 
-client = MongoClient(os.getenv("MONGODB_URI"))
+client = MongoClient(os.getenv("MONGODB_URI"), tlsCAFile=certifi.where())
 db = client.Portfolio_DB
 
 cloudinary.config(
