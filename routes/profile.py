@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from git import Optional
+from typing import Optional
 from pydantic import BaseModel
 from Database.db_connect import collection_profile
 
@@ -10,7 +10,7 @@ router = APIRouter()
 class ProfileModel(BaseModel):
     name: str
     role: str
-    bio: str    
+    bio: str
     profile_image: Optional[str] = ""
     resume_url: Optional[str] = ""
     github: Optional[str] = ""
